@@ -4,7 +4,8 @@
   "info": {
     "singularName": "event",
     "pluralName": "events",
-    "displayName": "Event"
+    "displayName": "Event",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,13 +22,15 @@
     },
     "organizer": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::organizer.organizer"
+      "relation": "manyToOne",
+      "target": "api::organizer.organizer",
+      "inversedBy": "events"
     },
     "participants": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::participant.participant"
+      "relation": "manyToMany",
+      "target": "api::participant.participant",
+      "inversedBy": "events"
     }
   }
 }
